@@ -3,8 +3,6 @@
 {{- if hugo.IsProduction }}{{ $css = $css | minify | fingerprint "sha384" }}{{ end -}}
 {{- $themeInit := resources.Get "js/theme-init.js" | minify | fingerprint "sha384" -}}
 {{- $mainJS := resources.Get "js/script.js" | minify | fingerprint "sha384" -}}
-{{- $statsJS := resources.Get "js/stats.js" | minify | fingerprint "sha384" -}}
-
 <!DOCTYPE html>
 <html lang="{{ site.Language.Lang }}" class="scroll-smooth">
   <head>
@@ -22,12 +20,11 @@
     {{ partial "header.html" . }}
 
     <main class="flex-1">
-      <div class="mx-auto flex w-full max-w-7xl flex-col px-4 lg:grid lg:grid-cols-[250px_minmax(0,1fr)_250px] lg:gap-8 xl:gap-10">
+      <div class="mx-auto flex w-full max-w-7xl flex-col px-4 lg:grid lg:grid-cols-[250px_minmax(0,1fr)] lg:gap-8 xl:gap-10">
         {{- partial "sidebar-recommendation.html" . }}
         <div class="min-w-0 order-1 lg:order-2">
           {{- block "main" . }}{{ end }}
         </div>
-        {{- partial "sidebar-stats.html" . }}
       </div>
     </main>
 
@@ -35,7 +32,6 @@
     {{ if site.Params.search.enable }}{{ partial "search.html" . }}{{ end }}
 
     <script src="{{ $mainJS.RelPermalink }}" defer{{ if hugo.IsProduction }} integrity="{{ $mainJS.Data.Integrity }}" crossorigin="anonymous"{{ end }}></script>
-    <script src="{{ $statsJS.RelPermalink }}" defer{{ if hugo.IsProduction }} integrity="{{ $statsJS.Data.Integrity }}" crossorigin="anonymous"{{ end }}></script>
     {{ if site.Params.search.enable }}
       <script src="{{ "pagefind/pagefind-ui.js" | relURL }}" defer></script>
     {{ end }}
