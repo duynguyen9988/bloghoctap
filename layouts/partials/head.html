@@ -1,0 +1,51 @@
+{{- $suffix := printf " — %s" site.Title -}}
+{{- $title := "" -}}
+{{- if .IsHome -}}
+  {{- $title = printf "%s — %s" site.Title site.Params.description -}}
+{{- else -}}
+  {{- $title = printf "%s%s" .Title $suffix -}}
+  {{- if gt (len $title) 70 -}}
+    {{- $maxTitle := sub 70 (len $suffix) -}}
+    {{- $title = printf "%s…%s" (substr .Title 0 (sub $maxTitle 1)) $suffix -}}
+  {{- end -}}
+{{- end -}}
+{{- $desc := .Description | default .Summary | default site.Params.description | plainify | htmlUnescape -}}
+{{- $canonical := .Permalink -}}
+{{- $thumb := site.Params.favicon -}}
+
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
+<link rel="canonical" href="{{ $canonical }}">
+<meta name="generator" content="Hugo {{ hugo.Version }}">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="{{ if .IsHome }}#2563eb{{ else }}#0f172a{{ end }}">
+
+{{- /* OpenGraph */ -}}
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ $canonical }}">
+<meta property="og:locale" content="vi_VN">
+{{- if .IsPage }}
+  <meta property="article:published_time" content="{{ .PublishDate.Format "2006-01-02T15:04:05-07:00" }}">
+  {{- with .Lastmod }}
+    <meta property="article:modified_time" content="{{ .Format "2006-01-02T15:04:05-07:00" }}">
+  {{- end }}
+  <meta property="article:section" content="{{ with .Section }}{{ . }}{{ end }}">
+{{- end }}
+
+{{- /* Twitter */ -}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $desc }}">
+
+{{- /* Favicon */ -}}
+{{- with site.Params.favicon }}
+  <link rel="icon" href="{{ . | relURL }}" type="image/svg+xml">
+{{- end }}
+
+{{- /* RSS auto-discovery */ -}}
+{{- with .OutputFormats.Get "RSS" -}}
+  <link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ site.Title }}">
+{{- end -}}

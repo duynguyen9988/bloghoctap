@@ -1,0 +1,35 @@
+{{- $css := resources.Get "css/main.css" -}}
+{{- $css = $css | postCSS -}}
+{{- if hugo.IsProduction }}{{ $css = $css | minify | fingerprint "sha384" }}{{ end -}}
+{{- $themeInit := resources.Get "js/theme-init.js" | minify | fingerprint "sha384" -}}
+{{- $mainJS := resources.Get "js/script.js" | minify | fingerprint "sha384" -}}
+
+<!DOCTYPE html>
+<html lang="{{ site.Language.Lang }}" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ partial "head.html" . }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous"{{ end }}>
+    {{ if site.Params.search.enable }}
+      <link rel="stylesheet" href="{{ "pagefind/pagefind-ui.css" | relURL }}">
+    {{ end }}
+    <script src="{{ $themeInit.RelPermalink }}"></script>
+    <link rel="preload" href="{{ $mainJS.RelPermalink }}" as="script">
+  </head>
+  <body class="flex min-h-screen flex-col">
+    {{ partial "header.html" . }}
+
+    <main class="flex-1">
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    {{ partial "footer.html" . }}
+    {{ if site.Params.search.enable }}{{ partial "search.html" . }}{{ end }}
+
+    <script src="{{ $mainJS.RelPermalink }}" defer{{ if hugo.IsProduction }} integrity="{{ $mainJS.Data.Integrity }}" crossorigin="anonymous"{{ end }}></script>
+    {{ if site.Params.search.enable }}
+      <script src="{{ "pagefind/pagefind-ui.js" | relURL }}" defer></script>
+    {{ end }}
+  </body>
+</html>

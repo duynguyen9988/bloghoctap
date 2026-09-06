@@ -1,0 +1,21 @@
+<footer class="mt-16 border-t border-slate-200 dark:border-slate-800">
+  <div class="container mx-auto max-w-4xl py-8">
+    <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
+      <p class="text-sm text-slate-500 dark:text-slate-400">
+        © {{ now.Year }} <a href="{{ site.Home.RelPermalink }}" class="font-medium text-slate-700 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400">{{ site.Title }}</a>
+        — {{ site.Params.description }}
+      </p>
+      <div class="flex items-center gap-4 text-sm">
+        {{- range site.Menus.main }}
+          <a href="{{ .URL | relURL }}" class="text-slate-500 transition-colors hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">{{ .Name }}</a>
+        {{- end }}
+        {{- with site.Params.source }}
+          <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="text-slate-500 transition-colors hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400" title="Source code">GitHub</a>
+        {{- end }}
+      </div>
+    </div>
+    <p class="mt-4 text-center text-xs text-slate-400 dark:text-slate-500">
+      Generated with <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 dark:hover:text-blue-400">Hugo</a> · Tailwind CSS · Pagefind
+    </p>
+  </div>
+</footer>

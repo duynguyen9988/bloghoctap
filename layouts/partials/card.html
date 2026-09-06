@@ -1,0 +1,27 @@
+<article class="group flex flex-col gap-3 rounded-2xl border border-slate-200 p-5 transition-all hover:border-blue-300 hover:shadow-sm dark:border-slate-800 dark:hover:border-slate-700">
+  <a href="{{ .RelPermalink }}" class="focus-visible:outline-none">
+    <h2 class="text-lg font-semibold leading-snug text-slate-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
+      {{ .Title }}
+    </h2>
+  </a>
+
+  <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "02/01/2006" }}</time>
+    <span aria-hidden="true">·</span>
+    <span>{{ .ReadingTime }} phút đọc</span>
+  </div>
+
+  <p class="line-clamp-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+    {{ .Description | default .Summary | plainify }}
+  </p>
+
+  {{- if .Params.categories }}
+    <div class="flex flex-wrap gap-1.5">
+      {{- range .Params.categories }}
+        {{- with $.Site.GetPage (printf "/categories/%s" .) }}
+          <a href="{{ .RelPermalink }}" class="chip">{{ .Title }}</a>
+        {{- end }}
+      {{- end }}
+    </div>
+  {{- end }}
+</article>

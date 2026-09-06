@@ -1,0 +1,75 @@
+baseURL = 'https://duynguyen9988.github.io/bloghoctap/'
+locale = 'vi_VN'
+title = 'bloghoctap'
+defaultContentLanguage = 'vi'
+enableRobotsTXT = true
+enableGitInfo = true
+enableEmoji = true
+summaryLength = 40
+paginate = 9
+disableKinds = []
+
+# ---------- Taxonomy ----------
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+
+# ---------- Params ----------
+[params]
+  description = 'học mọi điều từ cuộc sống'
+  defaultTheme = 'auto'
+  siteTagline = 'học mọi điều từ cuộc sống'
+  author = 'Duy Nguyen'
+  source = 'https://github.com/duynguyen9988/bloghoctap'
+  favicon = 'favicon.svg'
+
+  [params.search]
+    enable = true
+    placeholder = 'Tìm kiếm bài viết…'
+
+# ---------- Main menu ----------
+[menu]
+  [[menu.main]]
+    name = 'Trang chủ'
+    url = '/'
+    identifier = 'home'
+    weight = 1
+  [[menu.main]]
+    name = 'Bài viết'
+    url = '/posts/'
+    identifier = 'posts'
+    weight = 2
+  [[menu.main]]
+    name = 'Chuyên mục'
+    url = '/categories/'
+    identifier = 'categories'
+    weight = 3
+  [[menu.main]]
+    name = 'Thẻ'
+    url = '/tags/'
+    identifier = 'tags'
+    weight = 4
+
+# ---------- Markup ----------
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      wrapStandAloneImageWithinParagraph = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+
+# ---------- Permalinks ----------
+[permalinks]
+  posts = '/posts/:slug'
+
+# ---------- Outputs ----------
+[outputs]
+  home = ['HTML', 'RSS']
+  section = ['HTML', 'RSS']
+  taxonomy = ['HTML', 'RSS']
+  term = ['HTML', 'RSS']
+  page = ['HTML']

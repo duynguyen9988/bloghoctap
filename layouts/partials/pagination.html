@@ -1,0 +1,31 @@
+{{- $paginator := .Paginator -}}
+{{- if gt $paginator.TotalPages 1 }}
+<nav class="mt-10 flex items-center justify-center gap-1" aria-label="Phân trang">
+  {{- with $paginator.Prev }}
+    <a href="{{ .URL }}" rel="prev" class="btn-ghost rounded-lg px-3 py-2 text-sm">← Trang trước</a>
+  {{- else }}
+    <span class="btn-ghost cursor-not-allowed opacity-40">← Trang trước</span>
+  {{- end }}
+
+  {{- $current := $paginator.PageNumber -}}
+  {{- $window := 2 -}}
+  {{- range $i := seq 1 $paginator.TotalPages }}
+    {{- $pager := index $paginator.Pagers (sub $i 1) }}
+    {{- if or (eq $i 1) (eq $i $paginator.TotalPages) (and (ge $i (sub $current $window)) (le $i (add $current $window))) }}
+      {{- if eq $i $current }}
+        <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-sm font-semibold text-white dark:bg-blue-500" aria-current="page">{{ $i }}</span>
+      {{- else }}
+        <a href="{{ $pager.URL }}" class="flex h-9 w-9 items-center justify-center rounded-lg text-sm text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">{{ $i }}</a>
+      {{- end }}
+    {{- else if or (eq $i 2) (eq $i (sub $paginator.TotalPages 1)) }}
+      <span class="flex h-9 items-center px-1 text-slate-400">…</span>
+    {{- end }}
+  {{- end }}
+
+  {{- with $paginator.Next }}
+    <a href="{{ .URL }}" rel="next" class="btn-ghost rounded-lg px-3 py-2 text-sm">Trang kế tiếp →</a>
+  {{- else }}
+    <span class="btn-ghost cursor-not-allowed opacity-40">Trang kế tiếp →</span>
+  {{- end }}
+</nav>
+{{- end }}

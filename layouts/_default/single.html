@@ -1,0 +1,64 @@
+{{ define "main" }}
+<article class="container mx-auto max-w-3xl px-4 py-12 sm:py-16">
+  <header>
+    <nav class="mb-6 flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400" aria-label="Breadcrumb">
+      <a href="{{ site.Home.RelPermalink }}" class="transition-colors hover:text-blue-600 dark:hover:text-blue-400">Trang chủ</a>
+      <span aria-hidden="true">/</span>
+      <a href="{{ with .Section }}{{ printf "/%s/" . | relURL }}{{ else }}{{ site.Home.RelPermalink }}{{ end }}" class="transition-colors capitalize hover:text-blue-600 dark:hover:text-blue-400">{{ .Section | default "Bài viết" }}</a>
+    </nav>
+
+    <h1 class="text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-4xl dark:text-white">{{ .Title }}</h1>
+
+    {{- with .Description }}
+      <p class="mt-4 text-lg leading-relaxed text-slate-600 dark:text-slate-300">{{ . }}</p>
+    {{- end }}
+
+    <div class="mt-6 flex flex-wrap items-center gap-3 text-sm text-slate-500 dark:text-slate-400">
+      <span class="font-medium text-slate-700 dark:text-slate-200">{{ site.Params.author }}</span>
+      <span aria-hidden="true">·</span>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "02/01/2006" }}</time>
+      <span aria-hidden="true">·</span>
+      <span>{{ .ReadingTime }} phút đọc</span>
+      {{- if .Params.categories }}
+        <span aria-hidden="true">·</span>
+        <span class="flex flex-wrap gap-1.5">
+          {{- range .Params.categories }}
+            {{- with $.Site.GetPage (printf "/categories/%s" .) }}
+              <a href="{{ .RelPermalink }}" class="chip">{{ .Title }}</a>
+            {{- end }}
+          {{- end }}
+        </span>
+      {{- end }}
+    </div>
+  </header>
+
+  <div class="prose-blog mt-10">{{ .Content }}</div>
+
+  {{- if .Params.tags }}
+    <footer class="mt-12 border-t border-slate-200 pt-6 dark:border-slate-800">
+      <div class="flex flex-wrap gap-1.5">
+        {{- range .Params.tags }}
+          {{- with $.Site.GetPage (printf "/tags/%s" .) }}
+            <a href="{{ .RelPermalink }}" class="chip">#{{ .Title }}</a>
+          {{- end }}
+        {{- end }}
+      </div>
+    </footer>
+  {{- end }}
+
+  <nav class="mt-10 grid gap-4 border-t border-slate-200 pt-6 sm:grid-cols-2 dark:border-slate-800">
+    {{- with .PrevInSection }}
+      <a href="{{ .RelPermalink }}" class="group rounded-xl border border-slate-200 p-4 transition-colors hover:border-blue-300 dark:border-slate-800 dark:hover:border-slate-700">
+        <span class="text-xs text-slate-400">← Bài trước</span>
+        <span class="mt-1 block font-medium text-slate-800 transition-colors group-hover:text-blue-600 dark:text-slate-200">{{ .Title }}</span>
+      </a>
+    {{- end }}
+    {{- with .NextInSection }}
+      <a href="{{ .RelPermalink }}" class="group rounded-xl border border-slate-200 p-4 text-right transition-colors hover:border-blue-300 dark:border-slate-800 dark:hover:border-slate-700 sm:col-start-2">
+        <span class="text-xs text-slate-400">Bài kế tiếp →</span>
+        <span class="mt-1 block font-medium text-slate-800 transition-colors group-hover:text-blue-600 dark:text-slate-200">{{ .Title }}</span>
+      </a>
+    {{- end }}
+  </nav>
+</article>
+{{ end }}
