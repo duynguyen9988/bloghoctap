@@ -1,21 +1,38 @@
 <footer class="mt-16 border-t border-slate-200 dark:border-slate-800">
+  <section class="container mx-auto max-w-4xl py-8" aria-labelledby="runs-heading">
+    <h2 id="runs-heading" class="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-slate-900 dark:text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 15v-3a8 8 0 0116 0v3m-2 3h2a1 1 0 001-1v-5a1 1 0 00-1-1h-2a1 1 0 00-1 1v5a1 1 0 001 1zm-12 0H4a1 1 0 01-1-1v-5a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1zm4-3h8v-8h-8v8z"/>
+      </svg>
+      Lịch sử cập nhật
+    </h2>
+
+    <ul id="github-runs-list" class="mt-4 space-y-2"></ul>
+
+    <p id="github-runs-fallback" class="hidden mt-4 text-sm text-slate-400 dark:text-slate-500">
+      Không tải được lịch sử cập nhật (tạm thời). Xem trực tiếp trên
+      <a href="https://github.com/duynguyen9988/bloghoctap/actions" target="_blank" rel="noopener noreferrer" class="font-medium text-blue-600 hover:underline dark:text-blue-400">GitHub Actions</a>.
+    </p>
+
+    <nav id="github-runs-pager" class="mt-4 flex items-center justify-center gap-3 text-sm hidden" aria-label="Phân trang lịch sử cập nhật">
+      <button id="github-runs-prev" type="button"
+        class="rounded-full border border-slate-300 px-4 py-1.5 font-medium text-slate-600 transition-colors hover:border-blue-600 hover:text-blue-600 disabled:pointer-events-none disabled:opacity-40 dark:border-slate-700 dark:text-slate-300 dark:hover:border-blue-400 dark:hover:text-blue-400">Trang trước</button>
+      <button id="github-runs-next" type="button"
+        class="rounded-full border border-slate-300 px-4 py-1.5 font-medium text-slate-600 transition-colors hover:border-blue-600 hover:text-blue-600 disabled:pointer-events-none disabled:opacity-40 dark:border-slate-700 dark:text-slate-300 dark:hover:border-blue-400 dark:hover:text-blue-400">Trang kế tiếp</button>
+    </nav>
+  </section>
+
+  <div class="border-t border-slate-200 dark:border-slate-800">
   <div class="container mx-auto max-w-4xl py-8">
     <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
       <p class="text-sm text-slate-500 dark:text-slate-400">
         © {{ now.Year }} <a href="{{ site.Home.RelPermalink }}" class="font-medium text-slate-700 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400">{{ site.Title }}</a>
         — {{ site.Params.description }}
       </p>
-      <div class="flex items-center gap-4 text-sm">
-        {{- range site.Menus.main }}
-          <a href="{{ .URL | relURL }}" class="text-slate-500 transition-colors hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400">{{ .Name }}</a>
-        {{- end }}
-        {{- with site.Params.source }}
-          <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="text-slate-500 transition-colors hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400" title="Source code">GitHub</a>
-        {{- end }}
-      </div>
     </div>
     <p class="mt-4 text-center text-xs text-slate-400 dark:text-slate-500">
       Generated with <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 dark:hover:text-blue-400">Hugo</a> · Tailwind CSS · Pagefind
     </p>
+  </div>
   </div>
 </footer>

@@ -77,4 +77,106 @@
       }
     });
   }
+
+  // ---------- Lịch sử cập nhật (GitHub Actions runs) ----------
+  var runsList = document.getElementById('github-runs-list');
+  var runsFallback = document.getElementById('github-runs-fallback');
+  var runsPager = document.getElementById('github-runs-pager');
+  var runsPrev = document.getElementById('github-runs-prev');
+  var runsNext = document.getElementById('github-runs-next');
+  var runsPage = 1;
+  var runsTotal = 0;
+  var RUNS_PER_PAGE = 3;
+
+  function runsStatusDot(status, conclusion) {
+    if (status !== 'completed') return 'bg-amber-400 dark:bg-amber-500';
+    if (conclusion === 'success') return 'bg-emerald-500';
+    if (conclusion === 'failure' || conclusion === 'cancelled' || conclusion === 'timed_out') return 'bg-red-500';
+    return 'bg-slate-400 dark:bg-slate-500';
+  }
+
+  function runsStatusText(status, conclusion) {
+    if (status !== 'completed') return 'Đang chạy';
+    if (conclusion === 'success') return 'Thành công';
+    if (conclusion === 'failure') return 'Thất bại';
+    if (conclusion === 'cancelled') return 'Đã hủy';
+    if (conclusion === 'timed_out') return 'Quá thời gian';
+    return conclusion || status;
+  }
+
+  function runsTime(iso) {
+    var d = new Date(iso);
+    if (isNaN(d)) return '';
+    return d.toLocaleString('vi-VN', {
+      day: '2-digit', month: '2-digit', year: 'numeric',
+      hour: '2-digit', minute: '2-digit'
+    });
+  }
+
+  function runsRender(runs) {
+    if (!runsList) return;
+    runsList.innerHTML = '';
+    runs.forEach(function (run) {
+      var li = document.createElement('li');
+      li.className = 'flex items-center gap-3 rounded-lg border border-slate-200 px-4 py-2.5 dark:border-slate-800';
+
+      var dot = document.createElement('span');
+      dot.className = 'h-2.5 w-2.5 shrink-0 rounded-full ' + runsStatusDot(run.status, run.conclusion);
+      dot.title = runsStatusText(run.status, run.conclusion);
+      dot.setAttribute('aria-hidden', 'true');
+
+      var a = document.createElement('a');
+      a.href = run.html_url || '#';
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.className = 'min-w-0 flex-1 truncate text-sm font-medium text-slate-700 transition-colors hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400';
+      a.textContent = (run.head_commit && run.head_commit.message ? run.head_commit.message.split('\n')[0] : (run.display_title || run.name || 'Run #' + run.run_number)).slice(0, 90);
+
+      var meta = document.createElement('span');
+      meta.className = 'shrink-0 text-xs text-slate-400 dark:text-slate-500';
+      meta.textContent = '#' + run.run_number + ' · ' + runsTime(run.created_at);
+
+      li.appendChild(dot);
+      li.appendChild(a);
+      li.appendChild(meta);
+      runsList.appendChild(li);
+    });
+  }
+
+  function runsUpdatePager() {
+    if (!runsPager) return;
+    var hasMore = runsTotal > RUNS_PER_PAGE;
+    runsPager.classList.toggle('hidden', !hasMore);
+    if (runsPrev) runsPrev.disabled = runsPage <= 1;
+    if (runsNext) runsNext.disabled = runsPage * RUNS_PER_PAGE >= runsTotal;
+  }
+
+  function runsLoad(page) {
+    if (!runsList) return;
+    fetch('https://api.github.com/repos/duynguyen9988/bloghoctap/actions/runs?per_page=' + RUNS_PER_PAGE + '&page=' + page)
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        runsTotal = data.total_count || 0;
+        runsPage = page;
+        runsRender(data.workflow_runs || []);
+        runsUpdatePager();
+        if (runsFallback) runsFallback.classList.add('hidden');
+      })
+      .catch(function () {
+        if (runsFallback) runsFallback.classList.remove('hidden');
+        if (runsPager) runsPager.classList.add('hidden');
+      });
+  }
+
+  if (runsPrev) runsPrev.addEventListener('click', function () {
+    if (runsPage > 1) runsLoad(runsPage - 1);
+  });
+  if (runsNext) runsNext.addEventListener('click', function () {
+    if (runsPage * RUNS_PER_PAGE < runsTotal) runsLoad(runsPage + 1);
+  });
+
+  runsLoad(1);
 })();
