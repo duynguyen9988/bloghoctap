@@ -6,7 +6,7 @@ enableRobotsTXT = true
 enableGitInfo = true
 enableEmoji = true
 summaryLength = 40
-paginate = 9
+paginate = 8
 disableKinds = []
 
 # ---------- Taxonomy ----------
