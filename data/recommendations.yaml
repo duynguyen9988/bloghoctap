@@ -1,0 +1,33 @@
+# AI phân tích toàn bộ nội dung bloghoctap (07/09/2026)
+# Đầu vào: 3 bài hiện có (3D Secure/OTP, PNR vé máy bay, scandal Hwang Jung-min)
+# Nhận diện: blog chuyên "giải mã" những thứ người thường gặp nhưng khó hiểu,
+# với trọng tâm an-toan-thong-tin xuyên suốt. Gợi ý dưới đây lấp các "khoảng trống nội dung"
+# cùng dòng chảy (content narrative) để viết tiếp.
+
+title: "Gợi ý viết tiếp"
+subtitle: "Phân tích AI từ nội dung blog"
+
+items:
+  - title: "Phishing & lừa đảo trực tuyến — làm sao nhận diện?"
+    context: "Giải mã các chiêu lừa đảo phổ biến (giả mạo ngân hàng, cuộc gọi deepfake) — mở rộng chủ đề bảo vệ tài khoản từ bài 3D Secure."
+    source: "/posts/co-che-thanh-toan-visa-mastercard-vi-sao-bi-tru-tien-khong-otp/"
+
+  - title: "Quyền riêng tư dữ liệu cá nhân — bạn đang để lộ gì khi đặt vé, mua hàng?"
+    context: "Từ PNR mở rộng ra GDPR, cookie, hành vi bị theo dõi online — chủ đề bao mat du lieu đang có nhu cầu."
+    source: "/posts/pnr-la-gi-va-vi-sao-tren-ve-may-bay-luon-co-ma-6-ky-tu/"
+
+  - title: "Ranh giới giữa fan – nghệ sĩ: học gì từ vụ stalking?"
+    context: "Phân tích tâm lý người hâm mộ, luật chống quấy rối, cách nghệ sĩ bảo vệ đời tư — nối tiếp bài Hwang Jung-min."
+    source: "/posts/hwang-jung-min-scandal-dispatch-stalking-2026/"
+
+  - title: "Ngân hàng & thanh toán không thẻ — QR, ví điện tử hoạt động ra sao?"
+    context: "Tiếp nối chủ đề tai-chinh: giải mã thanh toán QR, token hóa thẻ, liên ngân hàng NAPAS."
+    source: "/posts/co-che-thanh-toan-visa-mastercard-vi-sao-bi-tru-tien-khong-otp/"
+
+  - title: "Đặt vé máy bay trên app — những khoản phí 'ếm' bạn không hề hay"
+    context: "Góc nhìn người tiêu dùng từ bài PNR: phá giá ẩn, phí hành lý, quy định đổi hoàn vé của từng hãng."
+    source: "/posts/pnr-la-gi-va-vi-sao-tren-ve-may-bay-luon-co-ma-6-ky-tu/"
+
+  - title: "Luật pháp Hàn Quốc & ngành giải trí: án tóm tắt, luật chống stalking"
+    context: "Đi sâu khung pháp lý đằng sau bản án — nối tiếp bài viết về scandal để giữ nhịp chủ đề tu-phap."
+    source: "/posts/hwang-jung-min-scandal-dispatch-stalking-2026/"
