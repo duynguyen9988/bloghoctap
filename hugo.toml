@@ -17,14 +17,9 @@ disableKinds = []
   [[related.indices]]
     name = 'categories'
     weight = 100
-  [[related.indices]]
-    name = 'tags'
-    weight = 80
-
-# ---------- Taxonomy ----------
+  # ---------- Taxonomy ----------
 [taxonomies]
   category = 'categories'
-  tag = 'tags'
 
 # ---------- Params ----------
 [params]
@@ -56,13 +51,7 @@ disableKinds = []
     url = '/categories/'
     identifier = 'categories'
     weight = 3
-  [[menu.main]]
-    name = 'Thẻ'
-    url = '/tags/'
-    identifier = 'tags'
-    weight = 4
-
-# ---------- Markup ----------
+  # ---------- Markup ----------
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
@@ -83,5 +72,4 @@ disableKinds = []
   home = ['HTML', 'RSS']
   section = ['HTML', 'RSS']
   taxonomy = ['HTML', 'RSS']
-  term = ['HTML', 'RSS']
   page = ['HTML']
