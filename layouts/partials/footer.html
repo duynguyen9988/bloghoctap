@@ -47,12 +47,31 @@
         Lịch sử cập nhật bài viết trên blog
       </h2>
 
-      <ul id="blog-history-list" class="relative mt-6 space-y-3 pl-1 before:absolute before:left-[13px] before:top-2 before:bottom-2 before:w-0.5 before:border-l-2 before:border-dashed before:border-blue-200 dark:before:border-blue-900"></ul>
-
-      <p id="blog-history-fallback" class="hidden mt-4 text-sm text-slate-400 dark:text-slate-500">
-        Chưa tải được lịch sử bài viết. Xem trực tiếp trên
-        <a href="https://github.com/duynguyen9988/bloghoctap/commits/main/content/posts" target="_blank" rel="noopener noreferrer" class="font-medium text-blue-600 hover:underline dark:text-blue-400">GitHub</a>.
-      </p>
+      {{- $historyPosts := where site.RegularPages "Section" "eq" "posts" | first 8 }}
+      {{- $historyEmojis := slice "✨" "🔧" "📚" "🧹" "🚀" "📝" "🎨" "🏷️" }}
+      <ul class="relative mt-6 space-y-3 pl-1 before:absolute before:left-[13px] before:top-2 before:bottom-2 before:w-0.5 before:border-l-2 before:border-dashed before:border-blue-200 dark:before:border-blue-900">
+        {{- range $idx, $post := $historyPosts }}
+          {{- $emoji := index $historyEmojis (mod $idx (len $historyEmojis)) }}
+          <li class="relative flex items-start gap-3">
+            <span class="relative z-10 mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-100 text-base shadow-sm ring-4 ring-white dark:bg-blue-950 dark:ring-slate-900" aria-hidden="true">{{ $emoji }}</span>
+            <div class="min-w-0 flex-1 rounded-xl border border-slate-200 bg-white px-4 py-2.5 transition-all hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:hover:border-blue-800">
+              <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                <a href="{{ $post.RelPermalink }}" class="min-w-0 flex-1 truncate text-sm font-medium text-slate-800 transition-colors hover:text-blue-600 dark:text-slate-200 dark:hover:text-blue-400" title="{{ $post.Title }}">{{ $post.Title }}</a>
+                <span class="shrink-0 text-xs text-slate-400 dark:text-slate-500">{{ $post.Lastmod | time.Format "02/01/2006 15:04" }}</span>
+              </div>
+              {{- with $post.GitInfo }}
+              <a href="https://github.com/duynguyen9988/bloghoctap/commit/{{ .Hash }}" target="_blank" rel="noopener noreferrer"
+                class="mt-0.5 inline-flex items-center gap-1 text-xs text-blue-600 hover:underline dark:text-blue-400" title="Commit đẩy bài này: {{ .Hash }}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.832.477 5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+                commit: {{ .AbbreviatedHash }}
+              </a>
+              {{- end }}
+            </div>
+          </li>
+        {{- end }}
+      </ul>
 
       <a href="https://github.com/duynguyen9988/bloghoctap/commits/main/content/posts" target="_blank" rel="noopener noreferrer"
         class="mt-5 inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700 transition-all hover:-translate-y-0.5 hover:bg-blue-100 hover:shadow-sm dark:border-blue-900 dark:bg-blue-950/60 dark:text-blue-300 dark:hover:bg-blue-950">
