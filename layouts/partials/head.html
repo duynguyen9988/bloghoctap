@@ -27,6 +27,15 @@
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ $canonical }}">
 <meta property="og:locale" content="vi_VN">
+{{- if and .IsPage (eq .Section "posts") }}
+  {{- with .Resources.GetMatch "featured-image*" }}
+    {{- $ogImg := .Fill "1200x630" }}
+    <meta property="og:image" content="{{ $ogImg.Permalink }}">
+    <meta property="og:image:width" content="{{ $ogImg.Width }}">
+    <meta property="og:image:height" content="{{ $ogImg.Height }}">
+    <meta name="twitter:image" content="{{ $ogImg.Permalink }}">
+  {{- end }}
+{{- end }}
 {{- if .IsPage }}
   <meta property="article:published_time" content="{{ .PublishDate.Format "2006-01-02T15:04:05-07:00" }}">
   {{- with .Lastmod }}

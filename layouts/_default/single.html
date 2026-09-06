@@ -32,6 +32,12 @@
     </div>
   </header>
 
+  {{- with .Resources.GetMatch "featured-image*" }}
+    <figure class="mt-10">
+      <img src="{{ .RelPermalink }}" alt="{{ $.Title }}" width="{{ .Width }}" height="{{ .Height }}" decoding="async" loading="lazy" class="h-auto w-full rounded-2xl object-cover">
+    </figure>
+  {{- end }}
+
   <div class="prose-blog mt-10">{{ .Content }}</div>
 
   {{- if .Params.tags }}
