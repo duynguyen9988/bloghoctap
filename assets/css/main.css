@@ -49,3 +49,19 @@
 .nav-link-active {
   @apply bg-blue-600 text-white hover:bg-blue-700 hover:text-white dark:bg-blue-500 dark:hover:bg-blue-400 dark:hover:text-white;
 }
+
+@keyframes history-float {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-10px) rotate(6deg); }
+}
+
+.history-float {
+  animation: history-float 4s ease-in-out infinite;
+  opacity: 0.85;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .history-float {
+    animation: none;
+  }
+}

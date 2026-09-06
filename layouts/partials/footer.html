@@ -35,4 +35,30 @@
     </p>
   </div>
   </div>
+
+  <section class="relative overflow-hidden border-t border-slate-200 dark:border-slate-800" aria-labelledby="blog-history-heading">
+    <span class="pointer-events-none absolute right-6 top-4 hidden text-3xl sm:inline history-float" aria-hidden="true">🎈</span>
+    <span class="pointer-events-none absolute bottom-6 left-6 hidden text-3xl sm:inline history-float" style="animation-delay: 1.2s" aria-hidden="true">✏️</span>
+    <span class="pointer-events-none absolute right-1/4 top-2 hidden text-2xl sm:inline history-float" style="animation-delay: 2.1s" aria-hidden="true">🥳</span>
+
+    <div class="container mx-auto max-w-4xl py-10">
+      <h2 id="blog-history-heading" class="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-slate-900 dark:text-white">
+        <span class="text-base" aria-hidden="true">📝</span>
+        Lịch sử cập nhật bài viết trên blog
+      </h2>
+
+      <ul id="blog-history-list" class="relative mt-6 space-y-3 pl-1 before:absolute before:left-[13px] before:top-2 before:bottom-2 before:w-0.5 before:border-l-2 before:border-dashed before:border-blue-200 dark:before:border-blue-900"></ul>
+
+      <p id="blog-history-fallback" class="hidden mt-4 text-sm text-slate-400 dark:text-slate-500">
+        Chưa tải được lịch sử bài viết. Xem trực tiếp trên
+        <a href="https://github.com/duynguyen9988/bloghoctap/commits/main/content/posts" target="_blank" rel="noopener noreferrer" class="font-medium text-blue-600 hover:underline dark:text-blue-400">GitHub</a>.
+      </p>
+
+      <a href="https://github.com/duynguyen9988/bloghoctap/commits/main/content/posts" target="_blank" rel="noopener noreferrer"
+        class="mt-5 inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700 transition-all hover:-translate-y-0.5 hover:bg-blue-100 hover:shadow-sm dark:border-blue-900 dark:bg-blue-950/60 dark:text-blue-300 dark:hover:bg-blue-950">
+        Xem toàn bộ lịch sử bài viết
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
 </footer>

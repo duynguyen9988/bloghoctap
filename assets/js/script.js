@@ -179,4 +179,103 @@
   });
 
   runsLoad(1);
+
+  // ---------- Lịch sử cập nhật bài viết trên blog ----------
+  var historyList = document.getElementById('blog-history-list');
+  var historyFallback = document.getElementById('blog-history-fallback');
+
+  function historyEmoji(msg) {
+    var m = (msg || '').toLowerCase();
+    if (/feat|thêm|bài mới|bài viết mới/.test(m)) return '✨';
+    if (/fix|sửa|cải thiện/.test(m)) return '🔧';
+    if (/readme|docs|tài liệu/.test(m)) return '📚';
+    if (/bỏ|xóa|remove/.test(m)) return '🧹';
+    if (/deploy|triển khai/.test(m)) return '🚀';
+    return '📝';
+  }
+
+  function historyDot(emoji) {
+    var colors = {
+      '✨': 'bg-violet-100 text-violet-600 dark:bg-violet-950 dark:text-violet-300',
+      '🔧': 'bg-amber-100 text-amber-600 dark:bg-amber-950 dark:text-amber-300',
+      '📚': 'bg-sky-100 text-sky-600 dark:bg-sky-950 dark:text-sky-300',
+      '🧹': 'bg-rose-100 text-rose-600 dark:bg-rose-950 dark:text-rose-300',
+      '🚀': 'bg-emerald-100 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-300',
+      '📝': 'bg-blue-100 text-blue-600 dark:bg-blue-950 dark:text-blue-300'
+    };
+    return colors[emoji] || colors['📝'];
+  }
+
+  function historyTime(iso) {
+    var d = new Date(iso);
+    if (isNaN(d)) return '';
+    return d.toLocaleString('vi-VN', {
+      day: '2-digit', month: '2-digit', year: 'numeric',
+      hour: '2-digit', minute: '2-digit'
+    });
+  }
+
+  function historyRender(commits) {
+    if (!historyList) return;
+    historyList.innerHTML = '';
+    commits.forEach(function (c) {
+      var msg = (c.commit && ((c.commit.message || '').split('\n')[0])) || 'Cập nhật';
+      var emoji = historyEmoji(msg);
+
+      var li = document.createElement('li');
+      li.className = 'relative flex items-start gap-3';
+
+      var dot = document.createElement('span');
+      dot.className = 'relative z-10 mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-base shadow-sm ring-4 ring-white dark:ring-slate-900 ' + historyDot(emoji);
+      dot.textContent = emoji;
+      dot.setAttribute('aria-hidden', 'true');
+
+      var card = document.createElement('div');
+      card.className = 'min-w-0 flex-1 rounded-xl border border-slate-200 bg-white px-4 py-2.5 transition-all hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:hover:border-blue-800';
+
+      var row = document.createElement('div');
+      row.className = 'flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1';
+
+      var title = document.createElement('span');
+      title.className = 'min-w-0 flex-1 truncate text-sm font-medium text-slate-800 dark:text-slate-200';
+      title.textContent = msg.slice(0, 80);
+      title.title = msg;
+
+      var meta = document.createElement('span');
+      meta.className = 'shrink-0 text-xs text-slate-400 dark:text-slate-500';
+      meta.textContent = historyTime(c.commit && c.commit.committer && c.commit.committer.date);
+
+      row.appendChild(title);
+      row.appendChild(meta);
+
+      var sha = document.createElement('div');
+      sha.className = 'mt-0.5 text-xs text-blue-600 dark:text-blue-400';
+      sha.textContent = (c.sha || '').slice(0, 7);
+
+      card.appendChild(row);
+      card.appendChild(sha);
+      li.appendChild(dot);
+      li.appendChild(card);
+      historyList.appendChild(li);
+    });
+  }
+
+  function historyLoad() {
+    if (!historyList) return;
+    fetch('https://api.github.com/repos/duynguyen9988/bloghoctap/commits?path=content/posts&per_page=8')
+      .then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function (data) {
+        if (!Array.isArray(data)) throw new Error('Invalid payload');
+        historyRender(data);
+        if (historyFallback) historyFallback.classList.add('hidden');
+      })
+      .catch(function () {
+        if (historyFallback) historyFallback.classList.remove('hidden');
+      });
+  }
+
+  historyLoad();
 })();
