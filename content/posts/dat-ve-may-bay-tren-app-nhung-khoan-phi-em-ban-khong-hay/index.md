@@ -13,6 +13,19 @@ tags:
 categories:
   - hoc-tap
   - tai-chinh
+faq:
+  - q: "Giá hiển thị trên app có bắt buộc phải là tổng giá cuối cùng không?"
+    a: "Tại Mỹ, quy định Enhancing Transparency of Airline Ancillary Fees của DOT (hiệu lực 4/2024) yêu cầu hiển thị trước phí hành lý và phí đổi/hủy ngay trên màn hình đặt chỗ. Nhiều quốc gia khác cũng siết chặt kiểu quảng cáo 'giá tố'."
+  - q: "Vé hạng rẻ nhất có luôn kìm được hành lý ký gửi không?"
+    a: "Thường chỉ gồm hành lý xách tay 7kg. Muốn ký gửi phải mua thêm gói 20kg, 30kg, 40kg... khiến chi phí có thể gần bằng chính giá vé."
+  - q: "Làm sao tránh bị 'cú sốc' phí ẩn khi đặt vé?"
+    a: "So sánh tổng chi phí cho cùng cấu hình nhu cầu (kèm hành lý, quyền đổi), bật bộ lọc 'bao gồm hành lý', và luôn kiểm tra từng dòng phí trên màn hình thanh toán trước khi bấm nút."
+sources:
+  - label: "Airline Ancillary Fee Transparency — DOT Fact Sheet"
+    url: "https://www.transportation.gov/airconsumer/new-airline-refund-rule-and-airline-ancillary-fee-transparency"
+  - label: "Drip pricing (Wikipedia)"
+    url: "https://en.wikipedia.org/wiki/Drip_pricing"
+credit: "Bài tổng hợp có nguồn từ văn bản quy định của Bộ Giao thông vận tải Hoa Kỳ (DOT) và Wikipedia mục 'Drip pricing'."
 ---
 
 Bạn mở app du lịch lúc nửa đêm, thấy một tấm vé giá 499.000 đồng cho chuyến bay Sài Gòn – Đà Nẵng, bấm đặt ngay trước khi "chỗ hết". Đến màn hình thanh toán, con số ấy bỗng trở thành 1,2 triệu. Không phải app "sửa giá" — mà là hàng loạt khoản phí nhỏ đã được thả vào từng bước, đúng cái cách mà số tiền bạn phải trả cuối cùng khác xa con số bạn nghĩ mình đang trả. Với loại vé máy bay, nơi mà chuỗi mã **PNR** trên booking của bạn ghi lại toàn bộ hành trình và các dịch vụ kèm theo, câu chuyện "giá hiển thị so với giá thực trả" lại càng thú vị — và đôi khi, càng ít minh bạch.
@@ -52,3 +65,7 @@ Trước khi so sánh giá giữa các hãng, hãy xác định chính xác nhu 
 Một mẹo cuối: với các giao dịch đặt vé, hãy quay lại đối chiếu điều kiện đổi hoàn trong email xác nhận — thứ văn bản đi kèm đúng với chuỗi mã **PNR** mà chúng ta đã từng mổ xẻ trong [bài viết về PNR trên vé máy bay](/posts/pnr-la-gi-va-vi-sao-tren-ve-may-bay-luon-co-ma-6-ky-tu/). Cùng một booking reference, cùng những quyền lợi được in nhỏ, và cùng một bài học: trong hàng không, rẻ thường đắt, và minh bạch luôn phải xuất phát từ người mua.
 
 Lần tới khi một tấm vé "499.000 đồng" ánh lên màn hình nửa đêm, hãy dành thêm vài giây — bởi con số thực sự bạn sẽ trả, nằm ở phía sau nút "thanh toán", chứ không phải phía trước ngón tay bạn đang định bấm.
+
+{{< faq >}}
+
+{{< sources >}}

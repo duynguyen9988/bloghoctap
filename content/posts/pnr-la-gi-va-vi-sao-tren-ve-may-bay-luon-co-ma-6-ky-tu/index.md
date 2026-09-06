@@ -13,6 +13,21 @@ tags:
 categories:
   - hoc-tap
   - an-toan-thong-tin
+faq:
+  - q: "PNR và mã đặt vé (booking reference) là giống nhau phải không?"
+    a: "Có. Booking reference hay record locator chính là chuỗi mã 6 ký tự dùng để truy cập file PNR — chiếc 'chìa khóa' mở ra toàn bộ hồ sơ hành trình của bạn."
+  - q: "PNR của tôi có bị chia sẻ cho bên thứ ba không?"
+    a: "Hãng hàng không không được bán hoặc dùng PNR cho mục đích thương mại, nhưng phải chia sẻ cho cơ quan an ninh (ví dụ TSA tại Mỹ qua dữ liệu Secure Flight) theo quy định."
+  - q: "PNR được lưu trong bao lâu?"
+    a: "Cơ quan an ninh được phép giữ PNR khoảng 5 năm; dữ liệu phải được phi danh tính hóa trong 6 tháng đầu. Sau đó dữ liệu được lưu trữ để phục vụ an ninh thêm 10 năm nữa."
+  - q: "Vì sao chuỗi 6 ký tự không thấy có số 0 hay chữ O?"
+    a: "Nhiều hệ thống loại bỏ các ký tự dễ nhầm lẫn như 0/O, 1/I, 8/B để tránh sai sót khi đọc hoặc gõ mã."
+sources:
+  - label: "Passenger name record (Wikipedia)"
+    url: "https://en.wikipedia.org/wiki/Passenger_name_record"
+  - label: "US Code of Federal Regulations — PNR (eCFR)"
+    url: "https://www.ecfr.gov/current/title-14/chapter-II/subchapter-A/part-243"
+credit: "Bài tổng hợp có nguồn từ Wikipedia mục 'Passenger name record' và văn bản pháp quy của Hoa Kỳ."
 ---
 
 Nếu đã từng đặt vé máy bay, chắc hẳn bạn bắt gặp một chuỗi mã 6 ký tự ở khắp nơi: trong email xác nhận đặt chỗ, trên tờ biên nhận, ngay trên thẻ lên máy bay, thậm chí được in lên cả bag tag của hành lý. Nó "theo chân" bạn từ lúc đặt vé cho đến khi chuyến đi khép lại — vầng mã tưởng như vô thưởng vô phạt ấy được gọi là **booking reference** hay **record locator**, và nó chính là chiếc chìa khóa mở ra một hồ sơ mà ngành hàng không và an ninh quốc gia đều quan tâm: **Passenger Name Record (PNR)**. Vậy PNR thực chất là gì, dùng để làm gì, và tại sao nó vừa cần thiết lại vừa gây tranh cãi?
@@ -60,3 +75,7 @@ Dĩ nhiên, có quy định không có nghĩa là cơ sở dữ liệu PNR khôn
 Ngành du lịch đang trải qua những thay đổi lớn về khả năng kết nối dữ liệu, và PNR nhiều khả năng cũng biến đổi theo. IATA đang nỗ lực thúc đẩy chương trình **NDC (New Distribution Capability)**, trong đó có **ONE Order** — một nền tảng quản lý offer và order nhằm tạo một định danh duy nhất cho mọi sản phẩm, dịch vụ hành khách đã đặt. Điều này nghĩa là các loại hồ sơ như e-ticket (chứa thông tin thanh toán), EMD (chứa các dịch vụ mua thêm) và PNR (chứa chi tiết hành trình) sẽ được gói gọn dưới một order ID. Việc "nói lời chia tay" với PNR sẽ không diễn ra trong một sớm một chiều — quá trình chuyển đổi được đánh giá là chậm và dần dần. Nhưng hệ thống mới hứa hẹn giúp hãng bay và đại lý quản lý tài liệu dễ dàng hơn, và một ngày nào đó, nó có thể đánh dấu **sự kết thúc của PNR như chúng ta từng biết**.
 
 Lần tới khi chuỗi 6 ký tự xuất hiện trong email xác nhận của bạn, hãy nhớ: đó không chỉ là một cái "mã để check-in". Đằng sau nó là một hồ sơ đang được nhiều bên cùng dùng — để đưa bạn về đúng nhà ga, nhưng cũng để cảnh sát và an ninh biết ai đang ngồi ở hàng ghế nào trên bầu trời. Nó phản ánh đúng nghịch lý của ngành hàng không hiện đại: càng dễ bay, hệ thống càng phải biết nhiều về bạn.
+
+{{< faq >}}
+
+{{< sources >}}

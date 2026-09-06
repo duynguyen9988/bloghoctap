@@ -9,6 +9,18 @@ summaryLength = 40
 paginate = 8
 disableKinds = []
 
+# ---------- Related content ----------
+[related]
+  threshold = 50
+  includeNewer = true
+  toLower = false
+  [[related.indices]]
+    name = 'categories'
+    weight = 100
+  [[related.indices]]
+    name = 'tags'
+    weight = 80
+
 # ---------- Taxonomy ----------
 [taxonomies]
   category = 'categories'

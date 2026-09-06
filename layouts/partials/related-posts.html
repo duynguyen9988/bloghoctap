@@ -1,0 +1,32 @@
+{{- $related := .Site.RegularPages.Related . | first 3 -}}
+{{- if $related }}
+<section class="mt-14" aria-labelledby="related-heading">
+  <h2 id="related-heading" class="flex items-center gap-2 text-lg font-bold tracking-tight text-slate-900 dark:text-white">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+    </svg>
+    Bài viết liên quan
+  </h2>
+  <div class="mt-6 grid gap-4 sm:grid-cols-3">
+    {{- range $related }}
+    <article class="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 transition-all hover:border-blue-300 hover:shadow-sm dark:border-slate-800 dark:hover:border-slate-700">
+      <a href="{{ .RelPermalink }}" class="block focus-visible:outline-none" aria-label="{{ .Title }}">
+        {{- with .Resources.GetMatch "featured-image*" }}
+          {{- $thumb := .Fill "640x400 webp" }}
+          <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" decoding="async" loading="lazy" class="aspect-[16/10] w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]">
+        {{- end }}
+      </a>
+      <div class="flex flex-1 flex-col gap-2 p-4">
+        <h3 class="text-sm font-semibold leading-snug text-slate-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
+          <a href="{{ .RelPermalink }}" class="focus-visible:outline-none">{{ .Title }}</a>
+        </h3>
+        <div class="mt-auto flex items-center justify-between gap-2 text-xs text-slate-500 dark:text-slate-400">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format "02/01/2006" }}</time>
+          <span>{{ .ReadingTime }} phút đọc</span>
+        </div>
+      </div>
+    </article>
+    {{- end }}
+  </div>
+</section>
+{{- end -}}

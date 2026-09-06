@@ -14,6 +14,19 @@ tags:
 categories:
   - cuoc-song
   - an-toan-thong-tin
+faq:
+  - q: "Hwang Jung-min thực sự đã gặp A bao nhiêu lần?"
+    a: "Theo điều tra của Dispatch, họ chỉ gặp nhau ba lần: 16/8/2023 (3 tiếng), 11/9/2023 (2 tiếng tại sân bay Incheon) và 14/3/2024 (30 phút tại quán cà phê). Tổng cộng 5 giờ 30 phút, không có quan hệ thân mật nào."
+  - q: "Stalking tại Hàn Quốc bị xử lý ra sao?"
+    a: "Theo Đạo luật trừng phạt tội phạm theo dõi (2021), hành vi tiếp cận/liên lạc lặp đi lặp lại trái với nguyện vọng của đối phương có thể bị phạt tới 3 năm tù hoặc 30 triệu won."
+  - q: "Vụ kiện dân sự 200 triệu won là về chuyện gì?"
+    a: "A đòi bồi thường cho công sức thiết kế nhãn rượu soju, viết kịch bản và các ý tưởng sáng tạo vì lời đề nghị làm ăn từ Hwang Jung-min. Ngày 14/8/2026, Tòa án Trung tâm Seoul ra phán quyết hòa giải bắt buộc."
+sources:
+  - label: "Hwang Jung-min (Wikipedia)"
+    url: "https://en.wikipedia.org/wiki/Hwang_Jung-min"
+  - label: "Stalking in South Korea (Wikipedia)"
+    url: "https://en.wikipedia.org/wiki/Stalking_in_South_Korea"
+credit: "Bài tường thuật tổng hợp từ tin tức đã công bố của Dispatch và thông tin công khai về vụ án tại Hàn Quốc."
 ---
 
 Ngày 29/7/2026, một bài đăng vạch trần đời tư diễn viên Hwang Jung-min (55 tuổi) bất ngờ lan truyền trên cộng đồng mạng Hàn Quốc. Kẻ lan truyền không phải một tờ báo lá cải mà là một phụ nữ 41 tuổi tự xưng có mối quan hệ "sâu sắc" với nam diễn viên huyền thoại của điện ảnh Hàn. Chưa đầy 24 giờ sau, công ty quản lý Sam Company phản pháo dữ dội: người phụ nữ này chính là **nghi phạm trong vụ án stalking** đã bị tòa án Hàn Quốc ra ba lệnh cấm tiếp xúc, và bị phạt 3 triệu won theo án lệnh tóm tắt. Tờ Dispatch — tờ báo giải trí nổi tiếng với những "bom tấn" độc quyền — đã vào cuộc và công bố toàn bộ bằng chứng. Vụ việc nhanh chóng trở thành cuộc chiến căng thẳng giữa hai câu chuyện đối lập: một bên là "nạn nhân của kẻ cuồng tín", một bên là "người bị lạm dụng tình cảm lâu năm".
@@ -71,3 +84,7 @@ Vụ án này khiến dư luận Hàn Quốc phân cực mạnh. Một phía th�
 Đến nay, tám ngày sau khi Dispatch bắt đầu công bố loạt bài độc quyền (30/7–1/8/2026), câu trả lời cuối cùng vẫn thuộc về tòa án. A đã làm những việc rất dễ bị xã hội giễu cợt — nhưng bên dưới sự lố bịch ấy là một cơn khốn cùng thật sự: mất việc, tự cô lập, nhiều lần tìm đến cái chết. Cô nói với Dispatch rằng suốt hai năm cô "bị lôi kéo", rằng cô chỉ muốn một lần được ôm, một lần được thừa nhận sự tồn tại của mình. Và người đàn ông cô đeo bám — dù có lỗi trong cách giữ khoảng cách, trong câu "tối mai háo hức quá" vô nghĩa kia — thì vẫn chỉ muốn một điều: để gia đình yên ổn.
 
 Trong vũ điệu căng thẳng giữa "kẻ quấy rối" và "kẻ chối bỏ", điều rõ ràng nhất có lẽ không nằm ở bản án sẽ được tuyên ngày 8/9. Nó nằm ở một ranh giới mà ai cũng cần nhớ: một lời đề nghị quá đà, một cuộc trò chuyện riêng tư với người không cùng đẳng cấp quyền lực, hay nụ cười thân thiện với fan — tất cả đều có thể được đọc như lời mời gọi. Và một khi người nhận đã đọc như vậy, việc "cố gắng giải thích" qua hàng loạt tin nhắn tuyệt vọng sẽ không bao giờ được một tòa án lắng nghe như lời yêu thương.
+
+{{< faq >}}
+
+{{< sources >}}
