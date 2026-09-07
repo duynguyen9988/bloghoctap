@@ -2,7 +2,7 @@
 title: "Phishing & lừa đảo trực tuyến: làm sao nhận diện?"
 slug: phishing-lua-dao-truc-tuyen-lam-sao-nhan-dien
 date: 2026-09-06T14:49:35+07:00
-description: "Nhận diện phishing, vishing, smishing và cuộc gọi deepfake: giải mã chiêu giả mạo ngân hàng, mạo danh cơ quan chức năng và cách bảo vệ tài khoản sau bài học 3D Secure."
+description: "Nhận diện phishing, vishing, smishing và deepfake: giải mã chiêu giả mạo ngân hàng, mạo danh cơ quan chức năng và cách bảo vệ tài khoản an toàn."
 tags:
   - phishing
   - vishing

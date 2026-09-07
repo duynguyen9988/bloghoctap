@@ -2,7 +2,7 @@
 title: "Hwang Jung-min: vì sao fan hâm mộ 2 năm lại bị tố cáo stalking?"
 slug: hwang-jung-min-scandal-dispatch-stalking-2026
 date: 2026-09-06T13:41:19+07:00
-description: "Toàn cảnh scandal Hwang Jung-min và A: 3 cuộc gặp trong 5 giờ 30 phút, 11.000 chữ KakaoTalk, ảnh mèo chết, lệnh cấm tiếp xúc và vụ kiện 200 triệu won — câu chuyện từ Dispatch đến tòa án."
+description: "Toàn cảnh scandal Hwang Jung-min: 3 cuộc gặp trong 5 giờ 30 phút, 11.000 chữ KakaoTalk, lệnh cấm tiếp xúc và vụ kiện 200 triệu won — từ Dispatch đến tòa án."
 tags:
   - hwang-jung-min
   - han-quoc

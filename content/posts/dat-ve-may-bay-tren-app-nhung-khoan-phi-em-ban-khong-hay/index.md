@@ -2,7 +2,7 @@
 title: "Đặt vé máy bay trên app — những khoản phí 'ếm' bạn không hề hay"
 slug: dat-ve-may-bay-tren-app-nhung-khoan-phi-em-ban-khong-hay
 date: 2026-09-06T14:10:55+07:00
-description: "Đặt vé máy bay trên app thường rẻ hơn nhưng kèm phí ẩn: hành lý, đổi hoàn vé, phí thanh toán. Tìm hiểu cơ chế phá giá ẩn (drip pricing), quy định minh bạch giá mới của DOT và cách đặt vé thông minh."
+description: "Vì sao vé máy bay rẻ trên app lại kèm phí ẩn: hành lý, đổi hoàn vé, phí thanh toán? Giải mã drip pricing, quy định của DOT và cách đặt vé thông minh."
 tags:
   - ve-may-bay
   - phi-an

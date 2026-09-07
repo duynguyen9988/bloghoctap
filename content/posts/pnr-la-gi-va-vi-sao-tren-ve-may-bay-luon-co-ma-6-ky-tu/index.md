@@ -2,7 +2,7 @@
 title: "PNR là gì? Giải mã chuỗi 6 ký tự luôn xuất hiện trên vé máy bay"
 slug: pnr-la-gi-va-vi-sao-tren-ve-may-bay-luon-co-ma-6-ky-tu
 date: 2026-09-06T13:26:03+07:00
-description: "PNR là gì? Giải mã chuỗi mã 6 ký tự trên booking, thẻ lên máy bay và bag tag: cách hồ sơ hành khách của bạn được thu thập, chia sẻ cho hãng bay, cơ quan an ninh và quy định bảo vệ dữ liệu ra sao."
+description: "PNR là gì? Giải mã chuỗi 6 ký tự trên vé máy bay, thẻ lên máy bay và bag tag — hồ sơ hành khách được chia sẻ ra sao và quy định bảo vệ dữ liệu."
 tags:
   - pnr
   - passenger-name-record
