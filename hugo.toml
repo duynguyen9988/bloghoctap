@@ -29,6 +29,7 @@ disableKinds = []
   author = 'Duy Nguyen'
   source = 'https://github.com/duynguyen9988/bloghoctap'
   favicon = 'favicon.svg'
+  googleSiteVerification = ''
 
   [params.search]
     enable = true

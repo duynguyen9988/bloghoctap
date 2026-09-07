@@ -69,6 +69,11 @@
   <link rel="icon" href="{{ . | relURL }}" type="image/svg+xml">
 {{- end }}
 
+{{- /* Google Search Console verification */ -}}
+{{- with site.Params.googleSiteVerification }}
+  <meta name="google-site-verification" content="{{ . }}">
+{{- end }}
+
 {{- /* RSS auto-discovery */ -}}
 {{- with .OutputFormats.Get "RSS" -}}
   <link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ site.Title }}">
